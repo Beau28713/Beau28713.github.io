@@ -34,6 +34,49 @@
             bottom: 0;
             width: 100%;
         }
+        .dropdown {
+            position: absolute;
+            top: 100px;
+            right: 25px; /* Align to the right */
+            display: inline-block;
+        }
+    
+        /* Style for the dropdown button */
+        .dropdown-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    
+        /* Style for the dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+    
+        /* Style for the dropdown links */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+    
+        /* Style for the dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+    
+        /* Show the dropdown content when the dropdown button is hovered over */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -43,9 +86,15 @@
 </header>
 
 <div class="container">
-  ` <p style="font-size: 10px; color:#1F9AFE; text-align: right;">
-    <a href="https://Beau28713.github.io\project_page.html">Projects</a>
-    </p>
+    <div class="dropdown">
+        <button class="dropdown-button">Select a Page</button>
+        <div class="dropdown-content">
+          <a href="https://www.example.com/page1.html" target="_blank">Page 1</a>
+          <a href="https://www.example.com/page2.html" target="_blank">Page 2</a>
+          <a href="https://www.example.com/page3.html" target="_blank">Page 3</a>
+        </div>
+      </div>
+    
     <h2>About Me</h2>
     <p>With a career spanning six years in the Air Force and over a decade dedicated to electronics and automation, I bring a unique blend of discipline, technical expertise, and problem-solving skills to the table. My time in the Air Force instilled in me a strong sense of teamwork, adaptability, and attention to detail, qualities that have seamlessly transitioned into my civilian life. Over the past twelve years, I have immersed myself in the intricacies of electronics and automation, honing my abilities to design, troubleshoot, and innovate within complex systems. Whether it's devising efficient solutions to streamline processes or meticulously analyzing circuits to ensure optimal performance, I thrive in dynamic environments where precision and innovation are paramount. My journey has equipped me with a diverse skill set and a passion for continuous learning, driving me to excel in every endeavor I undertake.</p>
     <h2>My Work</h2>
