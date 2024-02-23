@@ -2,71 +2,114 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back flushing water lines, flow, and level Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: auto;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Why started the project</h1>
-    <p>I started this project to help my father keep track of his camper’s water supply. My father had to check the
-        water level every morning and make sure the flow from the spring hadn’t stopped. If the flow stopped, he would
-        need to manually insert a water house into the pipe and Back flush the water lines to rid any sand that may have
-        stopped up the line. We installed screens at the spring house to help catch most of the sand
-        but some would still make it through. The lines would also become airlocked (I have a plane for this) and the
-        backflushing would rid the lines of this blockage.
-    </p>
-    <h1>Overview</h1>
-    <p>The system is designed to monitor the water level in the spring house and the flow of water from the spring. The
-        system will also back flush the water lines if the flow stops. The system will also alert the user if the water
-        level is low or if the flow has stopped
-    </p>
-    <h1>How it works</h1>
-    <p>Utilizing an Arduino as the brain, the system monitors the water level and flow via a tilt switch, float, and a
-        water flow sensor. When the water level falls low enough the tilt switch makes contact and the water level input
-        pin on the Arduino is pulled low. This pin is read by the Arduino, relay 1 is then activated thus activating a
-        servo that switches the position of a 3-way water valve blocking flow into the holding tank and opening access
-        to the water lines. Five seconds later the Arduino activates relay 2 turning on a pump. This pump feeds water
-        back into the water line backflushing the lines and removing all sand and airlocks. After running for one minute
-        relay 2 deactivate turning off the pump. After 5 seconds relay 1 deactivates, this activates the 3-way water
-        valve moving it back into its home position allowing water from the spring to once again flow into the holding
-        tanks.
-        The system also has a manual mode where at any time the sequence of operation can be performed when desired.
-    </p>
-    <h1>Parts List</h1>
-    <p>
-    <Ul><a
-            href="https://www.aliexpress.us/item/3256804648845790.html?spm=a2g0o.order_list.order_list_main.5.695718020k35QP&gatewayAdapt=glo2usa">3-way
-            water valve</a></Ul>
-    <ul><a href="https://www.adafruit.com/product/5066">water flow meter</a></ul>
-    <ul><a href="https://www.amazon.com/dp/B00E0NSORY?ref=ppx_yo2ov_dt_b_product_details&th=1">4 relay board</a></ul>
-    <ul><a href="https://www.amazon.com/dp/B00E0NSORY?ref=ppx_yo2ov_dt_b_product_details&th=1">Water circulator pump</a>
-    </ul>
-    <ul>Tilt Switch</ul>
-    <ul>12v power supply</ul>
-    <ul><a
-            href="https://store-usa.arduino.cc/collections/boards-modules/products/arduino-uno-wifi-rev2?_pos=5&_fid=1e131e922&_ss=c">Arduino</a>
-    </ul>
-    <ul><a href="https://www.amazon.com/dp/B09ZV2364K?psc=1&ref=ppx_yo2ov_dt_b_product_details">Pump</a></ul>
-    <ul><a href="https://www.adafruit.com/product/292">LCD Screen with I2C BackPack</a></ul>
-    <ul>3D printed Case for LCD Screen</ul>
-    </p>
-
-    <h1>Code</h1>
-    <p>
-        <a href="https://github.com/Beau28713/Arduino_BackFlush_Control/blob/main/Code/Back_Flush.ino">Arduino
-            Code</a>
-    </p>
-    <h1>Images</h1>
-    <p>
-        <img src="Test_Bed.jpg" alt="Description of the image" width="300" height="400">
-        <img src="20240204_132729.jpg" alt="Description of the image" width="300" height="400">
-    </p>
-
+    <div class="container">
+        <h1>Why started the project</h1>
+        <p>I started this project to help my father keep track of his camper’s water supply. My father had to check the
+            water level every morning and make sure the flow from the spring hadn’t stopped. If the flow stopped,
+            he would need to manually insert a water house into the pipe and Back flush the water lines to rid any sand
+            that
+            may have stopped up the line. We installed screens at the spring house to help catch most of the sand but
+            some
+            would still make it through. The lines would also become airlocked (I have a plane for this) and the
+            backflushing would rid the lines of this blockage. </p>
+        <h1>Overview</h1>
+        <p>The system is designed to monitor the water level in the spring house and the flow of water from the spring.
+            The
+            system will also back flush the water lines if the flow stops. The system will also alert the user if the
+            water
+            level is low or if the flow has stopped </p>
+        <h1>How it works</h1>
+        <p>Utilizing an Arduino as the brain,
+            the system monitors the water level and flow via a tilt switch,
+            float,
+            and a water flow sensor. When the water level falls low enough the tilt switch makes contact and the water
+            level
+            input pin on the Arduino is pulled low. This pin is read by the Arduino,
+            relay 1 is then activated thus activating a servo that switches the position of a 3-way water valve blocking
+            flow into the holding tank and opening access to the water lines. Five seconds later the Arduino activates
+            relay
+            2 turning on a pump. This pump feeds water back into the water line backflushing the lines and removing all
+            sand
+            and airlocks. After running for one minute relay 2 deactivate turning off the pump. After 5 seconds relay 1
+            deactivates,
+            this activates the 3-way water valve moving it back into its home position allowing water from the spring to
+            once again flow into the holding tanks. The system also has a manual mode where at any time the sequence of
+            operation can be performed when desired. </p>
+        <h1>Parts List</h1>
+        <p>
+        <Ul><a
+                href="https://www.aliexpress.us/item/3256804648845790.html?spm=a2g0o.order_list.order_list_main.5.695718020k35QP&gatewayAdapt=glo2usa">3-way
+                water valve</a></Ul>
+        <ul><a href="https://www.adafruit.com/product/5066">water flow meter</a></ul>
+        <ul><a href="https://www.amazon.com/dp/B00E0NSORY?ref=ppx_yo2ov_dt_b_product_details&th=1">4 relay board</a>
+        </ul>
+        <ul><a href="https://www.amazon.com/dp/B00E0NSORY?ref=ppx_yo2ov_dt_b_product_details&th=1">Water circulator
+                pump</a>
+        </ul>
+        <ul>Tilt Switch</ul>
+        <ul>12v power supply</ul>
+        <ul><a
+                href="https://store-usa.arduino.cc/collections/boards-modules/products/arduino-uno-wifi-rev2?_pos=5&_fid=1e131e922&_ss=c">Arduino</a>
+        </ul>
+        <ul><a href="https://www.amazon.com/dp/B09ZV2364K?psc=1&ref=ppx_yo2ov_dt_b_product_details">Pump</a></ul>
+        <ul><a href="https://www.adafruit.com/product/292">LCD Screen with I2C BackPack</a></ul>
+        <ul>3D printed Case for LCD Screen</ul>
+        </p>
+        <h1>Code</h1>
+        <p><a href="https://github.com/Beau28713/Arduino_BackFlush_Control/blob/main/Code/Back_Flush.ino">Arduino
+                Code</a>
+        </p>
+        <h1>Images</h1>
+        <p><img src="Test_Bed.jpg" alt="Description of the image" width="300" height="400"><img
+                src="20240204_132729.jpg" alt="Description of the image" width="300" height="400"></p>
+    </div>
 </body>
 
 </html>
-<!DOCTYPE html>
-<html>
+< !DOCTYPE html>
+    <html>
 
-<head>
-    <title>Projects</title>
-</head>
+    <head>
+        <title>Projects</title>
+    </head>
